@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECF : Javascript avancé</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <h3 data-position="header">Réalisation d'une application permettant la gestion de l’information avec un CRUD dans un environnement Javascript.</h3>   
+
+    <section data-position="add-quote">
+      <h2>Ajouter un enregistrement</h2>
+
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="Auteur" name="name" />
+        <input type="text" placeholder="Pays" name="country" />       
+        <input type="text" placeholder="Thème" name="theme" />
+        <input type="text" placeholder="Citation" name="quote" />
+        <button type="submit">Valider</button>
+      </form>
+    </section>
+
+    <section data-position="update-quote">
+      <div>
+        <h2>Repositionnement!</h2>
+        <p>
+          Replacer la première citation avec une citation écrite par le sytème
+        </p>
+        <button id="update-button">Replacer la ciation</button>
+      </div>
+    </section>
+
+    <section data-position="delete-quote">
+      <div>
+        <h2>Suppression!</h2>
+        <p>
+          Supprimer une citation. Ne rien faire si il y en a plus.
+        </p>
+        <button id="delete-button">Supprimer citation systeme</button>
+      </div>
+      <div id="message"></div>
+    </section>
+
+    <section data-position="quotes">
+      <h2>Citations</h2>
+
+      <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) {%>
+          <li class="quote" style="background-color: rgb(9, 100, 112);">
+            <span>Auteur : </span><span><%= quotes[i].name %></span>
+            <span>Pays : </span><span><%= quotes[i].country %></span>
+            <span>Thème : </span><span><%= quotes[i].theme %></span></br>
+          </li>
+        <li class="quote" style="background-color: rgb(193, 230, 240);">
+          <span>Citation : </span>
+          <span><%= quotes[i].quote %></span>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
